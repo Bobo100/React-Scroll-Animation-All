@@ -1,0 +1,13 @@
+.square {
+  width: 80px;
+  height: 80px;
+  background: #ff6d6d;
+  border-radius: 8px;
+  box-sizing: content-box;
+}
+.square:nth-child(odd) {
+  transform: translate3d(0, 0, 0);
+}
+.square:nth-child(even) {
+  transform: translate3d(100vw, 0, 0);
+}/*# sourceMappingURL=ThirdTest.css.map */
