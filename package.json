@@ -1,5 +1,6 @@
 {
-  "name": "my-app",
+  "name": "react-scroll-animation-all",
+  "homepage": "https://bobo100.github.io/React-Scroll-Animation-All/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
