@@ -1,5 +1,5 @@
 import { useSpring, animated } from "react-spring";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const UseSpring = () => {
     const [show, setShow] = useState(true);
@@ -32,19 +32,67 @@ export const UseSpring = () => {
     const props2 = useSpring({
         to: {
             x: toggle ? 400 : 0,
-        },
-        onRest: () => {
-            if (!startToggling) {
-                setStartToggling((startToggling) => !startToggling);
-            } else {
-                setToggle((toggle) => !toggle);
-                setStartToggling((startToggling) => !startToggling);
-            }
-        },
+        }
+        // onRest: () => {
+        //     if (!startToggling) {
+        //         setToggle((toggle) => !toggle);
+        //         setStartToggling((startToggling) => !startToggling);
+        //     } else {                
+        //         setStartToggling((startToggling) => !startToggling);
+        //     }
+        // },
     });
 
     const [open, setOpen] = useState(false);
     const props3 = useSpring({ width: open ? 240 : 40 });
+
+
+    const [toggle4, setToggle4] = useState(false);
+    const [props4, apitest] = useSpring(
+        () => ({
+            from: { x: 0 },
+            to: async (next) => {
+                await next({ x: 100 });
+                await next({ x: 0 });
+            },
+        }),
+        [toggle4]
+    )
+
+    // 下面兩個useEffect都可以達到相同的效果 但並不需要寫在useEffect裡面 單純在測試
+    // const [props4, apitest] = useSpring(
+    //     () => ({
+    //     }),
+    //     []
+    // )    
+    // useEffect(() => {
+    //     apitest.start({
+    //         from: { x: 0 },
+    //         to: async (next) => {
+    //             await next({ x: 100 });
+    //             await next({ x: 0 });
+    //         },
+    //         reset: true,
+    //     });
+    // }, [toggle4, apitest]);
+
+    // useEffect(() => {
+    //     let direction = 'right';
+    //     apitest.start({
+    //         to: async (next) => {
+    //             if (direction === 'right') {
+    //                 await next({ x: 100 });
+    //                 await next({ x: 0 });
+    //                 direction = 'left';
+    //             } else {
+    //                 await next({ x: 0 });
+    //                 await next({ x: 100 });
+    //                 direction = 'right';
+    //             }
+    //         },
+    //         reset: true,
+    //     });
+    // }, [toggle4, apitest]);
 
     return (
         <>
@@ -76,7 +124,8 @@ export const UseSpring = () => {
                     }}
                 >
                 </animated.div>
-                <button onClick={() => setToggle((toggle) => !toggle)}>點我重新看動畫</button>
+                移動的動畫
+                <button onClick={() => { setToggle((toggle) => !toggle); }}>點我重新看動畫</button>
                 {/* 不安全的寫法 下面的 */}
                 {/* 如果其他代码在该函数调用期间更改了 toggle 值 就會有問題 */}
                 {/* 簡單的測試就是 自己button連點 就會發現錯誤 */}
@@ -99,10 +148,26 @@ export const UseSpring = () => {
                 >
                     {props3.width.to((x) => x.toFixed(0))}
                 </animated.div>
-
+                直接點擊40也會觸發動畫，會將div變寬
                 <button onClick={() => setOpen((prev) => !prev)}>
                     點我重新看動畫
                 </button>
+            </div>
+
+
+            <div className="container">
+                <animated.div
+                    style={{
+                        width: 80,
+                        height: 80,
+                        background: '#ff6d6d',
+                        borderRadius: 8,
+                        ...props4
+                    }}
+                >
+                </animated.div>
+                來回移動的動畫
+                <button onClick={() => { setToggle4((toggle4) => !toggle4); }}>點我重新看動畫</button>
             </div>
 
             {/* <div className="container">
