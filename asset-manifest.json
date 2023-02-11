@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/React-Scroll-Animation-All/static/css/main.411a4a8a.css",
+    "main.js": "/React-Scroll-Animation-All/static/js/main.037728f5.js",
+    "index.html": "/React-Scroll-Animation-All/index.html",
+    "main.411a4a8a.css.map": "/React-Scroll-Animation-All/static/css/main.411a4a8a.css.map",
+    "main.037728f5.js.map": "/React-Scroll-Animation-All/static/js/main.037728f5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.411a4a8a.css",
+    "static/js/main.037728f5.js"
+  ]
+}
