@@ -1,5 +1,5 @@
 // 一開始會往右移動 100 單位
-import { useSpring, animated } from '@react-spring/web'
+import { useSpring, animated } from 'react-spring';
 
 export function FirstComponent() {
   const springs = useSpring({
@@ -19,3 +19,4 @@ export function FirstComponent() {
     />
   )
 }
+

@@ -9,6 +9,7 @@
   color: white;
   text-align: center;
 } */
+
 .App {
   height: 1000vh;
 }
@@ -16,11 +17,14 @@
 .container {
   max-width: 960px;
   margin: 20px auto;
+
   display: flex;
   flex-direction: column;
   align-items: start;
+
   box-sizing: border-box;
 }
+
 
 button {
   background-color: #415ebb;
@@ -30,4 +34,4 @@ button {
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
-}/*# sourceMappingURL=App.css.map */
+}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useSpring, animated, useScroll } from '@react-spring/web';
+import { useSpring, animated, useScroll } from 'react-spring';
 import "./css/ThirdTest.css"
 import uuid from 'react-uuid';
 

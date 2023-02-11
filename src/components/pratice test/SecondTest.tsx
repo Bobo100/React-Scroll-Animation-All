@@ -1,6 +1,6 @@
 // 隨著滾動，元件會跟著往下移動
 import { useState, useEffect } from 'react';
-import { useSpring, animated } from '@react-spring/web'
+import { useSpring, animated } from 'react-spring';
 
 export const SecondComponent = () => {
   const [scrollY, setScrollY] = useState(0)
