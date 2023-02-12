@@ -10,7 +10,7 @@ export const Home = () => {
         <div className='Home'>
             <h1>Home</h1>
             <UseSpring />
-            {/* <UseSprings /> */}
+            <UseSprings />
         </div>
     );
 };

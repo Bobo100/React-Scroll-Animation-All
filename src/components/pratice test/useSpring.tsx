@@ -95,13 +95,13 @@ export const UseSpring = () => {
     // }, [toggle4, apitest]);
 
     return (
-        <>
+        <div className="useSpring">
             <div className="container">
                 <h1>useSpring</h1>
                 <div>最基本的component，就如同transition一樣，可以用來做動畫
                 </div>
                 <div>可以用來做動畫，也可以用來做一些簡單的效果</div>
-                <div>當使用button去改變usSpring的狀態時候</div>
+                <div>下面我寫了一些小範例，並且可以使用button去看動畫</div>
             </div>
 
             <div className="container">
@@ -174,7 +174,7 @@ export const UseSpring = () => {
                 <ParentComponent />
             </div> */}
 
-        </>
+        </div>
 
     );
 };

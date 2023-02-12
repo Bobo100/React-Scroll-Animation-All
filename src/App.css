@@ -28,6 +28,12 @@ button {
   color: white;
   padding: 15px 32px;
   font-size: 16px;
-  margin: 4px 2px;
+  margin: 10px 2px;
   cursor: pointer;
+}
+
+.border {
+  border: 1px solid #415ebb;
+  border-radius: 5px;
+  padding: 10px;
 }/*# sourceMappingURL=App.css.map */
