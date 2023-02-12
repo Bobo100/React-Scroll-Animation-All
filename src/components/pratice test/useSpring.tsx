@@ -28,7 +28,7 @@ export const UseSpring = () => {
 
 
     const [toggle, setToggle] = useState(false);
-    const [startToggling, setStartToggling] = useState(false);
+    // const [startToggling, setStartToggling] = useState(false);
     const props2 = useSpring({
         to: {
             x: toggle ? 400 : 0,
