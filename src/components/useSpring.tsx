@@ -1,5 +1,6 @@
 import { useSpring, animated } from "react-spring";
 import { useState, useEffect } from "react";
+import { Common, CommonWithOutFlex, CodeBlock } from "./Common";
 
 export const UseSpring = () => {
     const [show, setShow] = useState(true);
@@ -104,16 +105,23 @@ export const UseSpring = () => {
                 <div>下面我寫了一些小範例，並且可以使用button去看動畫</div>
             </div>
 
-            <div className="container">
+            {/* --------------------------------------- */}
+            <Common set={setShow} toggle={show}>
                 <animated.div style={props}>
                     <h1>設立了一個透明度的useSpring</h1>
                 </animated.div>
-                <button onClick={() => setShow((show) => !show)}>
-                    點我重新看動畫
-                </button>
-            </div>
+                <CodeBlock>
+                    {`const [show, setShow] = useState(true);
+const props = useSpring({
+    // 假如show是true，就會從0.5變成1，反之則是1變成0.5
+    // show的初始值是true
+    from: { opacity: show ? 0.5 : 1 },
+    opacity: show ? 1 : 0.5,
+});`}</CodeBlock>
+            </Common>
 
-            <div className="container">
+            {/* --------------------------------------- */}
+            <CommonWithOutFlex set={setToggle} toggle={toggle}>
                 <animated.div
                     style={{
                         width: 80,
@@ -125,14 +133,14 @@ export const UseSpring = () => {
                 >
                 </animated.div>
                 移動的動畫
-                <button onClick={() => { setToggle((toggle) => !toggle); }}>點我重新看動畫</button>
                 {/* 不安全的寫法 下面的 */}
                 {/* 如果其他代码在该函数调用期间更改了 toggle 值 就會有問題 */}
                 {/* 簡單的測試就是 自己button連點 就會發現錯誤 */}
                 {/* <button onClick={() => setToggle(!toggle)}>點我重新看動畫</button> */}
-            </div>
+            </CommonWithOutFlex>
 
-            <div className="container">
+            {/* --------------------------------------- */}
+            <CommonWithOutFlex set={setOpen} toggle={open}>
                 <animated.div
                     style={{
                         lineHeight: '40px',
@@ -144,18 +152,16 @@ export const UseSpring = () => {
                         cursor: 'pointer',
                         ...props3,
                     }}
-                    onClick={() => setOpen((prev) => !prev)}
+                    onClick={() => setOpen((open) => !open)}
                 >
                     {props3.width.to((x) => x.toFixed(0))}
                 </animated.div>
                 直接點擊40也會觸發動畫，會將div變寬
-                <button onClick={() => setOpen((prev) => !prev)}>
-                    點我重新看動畫
-                </button>
-            </div>
+            </CommonWithOutFlex>
 
 
-            <div className="container">
+            {/* --------------------------------------- */}
+            <CommonWithOutFlex set={setToggle4} toggle={toggle4}>
                 <animated.div
                     style={{
                         width: 80,
@@ -167,12 +173,7 @@ export const UseSpring = () => {
                 >
                 </animated.div>
                 來回移動的動畫
-                <button onClick={() => { setToggle4((toggle4) => !toggle4); }}>點我重新看動畫</button>
-            </div>
-
-            {/* <div className="container">
-                <ParentComponent />
-            </div> */}
+            </CommonWithOutFlex>
 
         </div>
 

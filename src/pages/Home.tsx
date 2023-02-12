@@ -1,6 +1,6 @@
 import react from 'react';
-import { UseSpring } from '../components/pratice test/useSpring';
-import { UseSprings } from '../components/pratice test/useSprings';
+import { UseSpring } from '../components/useSpring';
+import { UseSprings } from '../components/useSprings';
 // import { FirstComponent } from '../components/pratice test/FirstTest';
 // import { SecondComponent } from '../components/pratice test/SecondTest';
 // import { ThirdComponent } from '../components/pratice test/ThirdTest';

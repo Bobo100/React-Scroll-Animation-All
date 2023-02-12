@@ -4,6 +4,7 @@ import uuid from "react-uuid";
 import Prism from 'prismjs';
 import 'prismjs/components/prism-javascript' // Language
 import 'prismjs/themes/prism-tomorrow.css' // Theme
+import { Common, CommonWithOutFlex, CodeBlock } from "./Common";
 // import 'prismjs/themes/prism-okaidia.css' // Theme
 
 export function UseSprings() {
@@ -66,18 +67,19 @@ export function UseSprings() {
                 <div>如果您想使用統一的 API 編排多個 spring，請使用useSprings不要使用沒加s的</div>
             </div>
 
-            <div className="container">
-                <div className="flex">
-                    <div className="border">
-                        {springs.map(props => (
-                            <animated.div style={props} key={uuid()}>
-                                <h1>Hello World</h1>
-                            </animated.div>
-                        ))}
-                    </div>
-                    <pre>
-                        <code className="language-javascript" >
-                            {`const [show, setShow] = useState(true);
+            {/* ------------------------------------------------------- */}
+            <Common set={setShow} toggle={show}>
+                <div className="border">
+                    {springs.map(props => (
+                        <animated.div style={props} key={uuid()}>
+                            <h1>Hello World</h1>
+                        </animated.div>
+                    ))}
+                </div>
+                {/* <CodeBlockBasic code="456"></CodeBlockBasic> */}
+                {/* <CodeBlock code="456"></CodeBlock> */}
+                <CodeBlock>
+                    {`const [show, setShow] = useState(true);
 const [springs, api] = useSprings(
     // 這邊的數字是指有幾個animated.div
     4,
@@ -86,31 +88,26 @@ const [springs, api] = useSprings(
         to: { opacity: show ? 1 : 0 },
     }),
     [show]
-)`}
-                        </code>
-                    </pre>
-                </div>
-                <button onClick={() => { setShow((show) => !show); }}>Start animation</button>
-            </div>
+)`}</CodeBlock>
+            </Common>
 
-            <div className="container">
-                <div className="flex">
-                    <div className="">
-                        {props2.map(props => (
-                            <animated.div style={{
-                                width: 80, height: 80,
-                                background: '#ff6d6d',
-                                borderRadius: 8,
-                                margin: 10 + 'px',
-                                transform: props.x.to(x => `translate3d(${x}px,0,0)`),
-                            }} key={uuid()}>
-                            </animated.div>
-                        ))}
-                        移動的動畫
-                    </div>
-                    <pre>
-                        <code className="language-javascript" >
-                            {`const [toggle, setToggle] = useState(false);
+            {/* ------------------------------------------------------- */}
+            <Common set={setToggle} toggle={toggle}>
+                <div className="">
+                    {props2.map(props => (
+                        <animated.div style={{
+                            width: 80, height: 80,
+                            background: '#ff6d6d',
+                            borderRadius: 8,
+                            margin: 10 + 'px',
+                            transform: props.x.to(x => `translate3d(${x}px,0,0)`),
+                        }} key={uuid()}>
+                        </animated.div>
+                    ))}
+                    移動的動畫
+                </div>
+                <CodeBlock>
+                    {`const [toggle, setToggle] = useState(false);
 const [props2, api2] = useSprings(
     2,
     () => ({
@@ -119,15 +116,11 @@ const [props2, api2] = useSprings(
         }
     }),
     [toggle]
-);`}
-                        </code>
-                    </pre>
-                </div>
-                <button onClick={() => { setToggle((toggle) => !toggle); }}>Start animation</button>
-            </div>
+);`}</CodeBlock>
+            </Common>
 
-
-            <div className="container">
+            {/* ------------------------------------------------------- */}
+            <CommonWithOutFlex set={setToggle4} toggle={toggle4}>
                 <div className="">
                     {props4.map(props => (
                         <animated.div style={{
@@ -141,8 +134,10 @@ const [props2, api2] = useSprings(
                     ))}
                     來回移動的動畫
                 </div>
-                <button onClick={() => { setToggle4((toggle4) => !toggle4); }}>Start animation</button>
-            </div>
+            </CommonWithOutFlex>
+            {/* ------------------------------------------------------- */}
+
+
         </div>
     )
 }
