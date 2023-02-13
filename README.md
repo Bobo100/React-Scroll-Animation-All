@@ -2,6 +2,8 @@
 
 ## React-Spring 練習紀錄
 
+position: fixed 是關鍵，固定在版面上
+
 ## Components
 
 ### useSpring
