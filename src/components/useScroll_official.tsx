@@ -15,8 +15,6 @@ export default function OfficeFunction() {
         y: '100%',
     }))
 
-    console.log(textStyles)
-
     // 設定滾動條的狀態 要甚麼時候改變
     // 我們是根據containerRef的滾動條的位置來改變
     // 當滾動條的位置大於0.7時，我們要改變textStyles的y的值

@@ -1,5 +1,6 @@
 import react, { useEffect, useState, useRef } from "react";
 import { useSpring, animated, useScroll, useSpringValue } from "react-spring";
+import { CodeBlock } from "./Common";
 
 export function UseScroll() {
     const scrollYProgress = useScroll()
@@ -167,19 +168,46 @@ export const MouseScrollY = () => {
     return (
         <div className="container">
             <div>根據滑鼠在裡面的位置給予透明度</div>
-            <div className="border"
-                ref={ref}
-                onMouseMove={handleMouseMove}
-            >
-                <animated.div
-                    style={{
-                        width: 80,
-                        height: 80,
-                        background: '#ff6d6d',
-                        borderRadius: 8,
-                        ...opacitySpring,
-                    }}
-                />
+            <div className="flex">
+                <div className="border"
+                    ref={ref}
+                    onMouseMove={handleMouseMove}
+                >
+                    <animated.div
+                        style={{
+                            width: 80,
+                            height: 80,
+                            background: '#ff6d6d',
+                            borderRadius: 8,
+                            ...opacitySpring,
+                        }} />
+                </div>
+                <CodeBlock>
+                    {`const [scrollY, setScrollY] = useState(0);
+const ref = useRef<HTMLDivElement>(null);
+const handleMouseMove: React.MouseEventHandler<HTMLDivElement> = (event) => {
+    const element = ref.current;
+    if (!element) return;
+    const elementTop = element.getBoundingClientRect().top;
+    const elementBottom = element.getBoundingClientRect().bottom;
+    const elementHeight = elementBottom - elementTop;
+    const mousePosition = event.clientY - elementTop;
+    const scrollY = mousePosition / elementHeight;
+    setScrollY(scrollY);
+};
+const opacitySpring = useSpring({ opacity: scrollY, from: { opacity: 0 } });
+// 下面是render的部分 也就是寫在return裡面的部分
+<div className="border" ref={ref} onMouseMove={handleMouseMove}>
+    <animated.div
+        style={{
+            width: 80,
+            height: 80,
+            background: '#ff6d6d',
+            borderRadius: 8,
+            ...opacitySpring,
+        }} />
+</div>
+`}</CodeBlock>
             </div>
         </div>
     );
