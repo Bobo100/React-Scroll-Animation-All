@@ -15,9 +15,15 @@ export default function OfficeFunction() {
         y: '100%',
     }))
 
+    console.log(textStyles)
+
+    // 設定滾動條的狀態 要甚麼時候改變
+    // 我們是根據containerRef的滾動條的位置來改變
+    // 當滾動條的位置大於0.7時，我們要改變textStyles的y的值
+    // 就會影響到textStyles的y的值 => 這邊的話也就會影響到文字出現的位置
     const { scrollYProgress } = useScroll({
         container: containerRef,
-        onChange: ({ value: { scrollYProgress } }) => {
+        onChange: ({ value: { scrollYProgress } }) => {            
             if (scrollYProgress > 0.7) {
                 textApi.start({ y: '0' })
             } else {
@@ -31,7 +37,7 @@ export default function OfficeFunction() {
 
     return (
         <div ref={containerRef} className={styles.toplevel}>
-            <div className={styles.animated__layers}>
+            <div className={styles.animated__layers}>                
                 <animated.div ref={barContainerRef} className={styles.bar__container}>
                     {Array.from({ length: X_LINES }).map((_, i) => (
                         <animated.div
@@ -70,10 +76,10 @@ export default function OfficeFunction() {
                 >
                     <h1 className={styles.title}>
                         <span>
-                            <animated.span style={textStyles}>Aha!</animated.span>
+                            <animated.span style={textStyles} className="name">Aha!</animated.span>
                         </span>
                         <span>
-                            <animated.span style={textStyles}>You found me!</animated.span>
+                            <animated.span style={textStyles} className="name" >You found me!</animated.span>
                         </span>
                     </h1>
                 </animated.div>
