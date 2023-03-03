@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/React-Scroll-Animation-All/static/css/main.f2cedf5c.css",
-    "main.js": "/React-Scroll-Animation-All/static/js/main.32efaa2d.js",
+    "main.css": "/React-Scroll-Animation-All/static/css/main.8497301f.css",
+    "main.js": "/React-Scroll-Animation-All/static/js/main.2863b134.js",
     "index.html": "/React-Scroll-Animation-All/index.html",
-    "main.f2cedf5c.css.map": "/React-Scroll-Animation-All/static/css/main.f2cedf5c.css.map",
-    "main.32efaa2d.js.map": "/React-Scroll-Animation-All/static/js/main.32efaa2d.js.map"
+    "main.8497301f.css.map": "/React-Scroll-Animation-All/static/css/main.8497301f.css.map",
+    "main.2863b134.js.map": "/React-Scroll-Animation-All/static/js/main.2863b134.js.map"
   },
   "entrypoints": [
-    "static/css/main.f2cedf5c.css",
-    "static/js/main.32efaa2d.js"
+    "static/css/main.8497301f.css",
+    "static/js/main.2863b134.js"
   ]
 }
